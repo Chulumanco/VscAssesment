@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML Table</title>
+    <style>
+         body {
+            font-family: Arial, Helvetica, sans-serif;
+         }
+         table{
+            width: 50%;
+         }
+           th {
+                          border: 1px solid black;
+                          background-position: center;
+                          background-color: grey;
+                          
+                        }
+
+                        td  {
+                           
+                            font-size: 14px;
+                            border: 1px solid black;
+                            
+            }
+            
+         .columnmarried { text-align: center ;}
+         .columnname {text-align:left ;}
+         .columnage {text-align: right;}
+         
+        </style>  
+        <script src="C:/Users/chulu/Desktop/VSC Solutions/jquery/jquery-1.8.3.min.js"></script>
+
+</head>
+<body>
+        <h2>Marriage table:</h2>
+        
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Married</th>
+            </tr>
+            <tr>
+                <td class="columnname"> John</td>
+                <td class="columnage">23</td>
+                <td  class="columnmarried">Yes</td>
+            </tr>
+            <tr>
+                <td class="columnname">Mick</td>
+                <td class="columnage">46</td>
+                <td  class="columnmarried">Yes</td>
+            </tr>
+            <tr>
+                <td class="columnname">Adam</td>
+                <td class="columnage">33</td>
+                <td  class="columnmarried">No</td>
+            </tr>
+            <tr>
+                <td class="columnname">Sandy</td>
+                <td class="columnage">28</td>
+                <td  class="columnmarried">No</td>
+            </tr>
+            <tr>
+                <td class="columnname">Monica</td>
+                <td class="columnage">53</td>
+                <td  class="columnmarried"> Yes</td>
+            </tr>
+            <tr>
+                <td class="columnname">Jack</td>
+                <td class="columnage">18</td>
+                <td  class="columnmarried">No</td>
+            </tr>
+            <tr>
+                <td class="columnname">Lesley</td>
+                <td class="columnage">30</td>
+                <td  class="columnmarried">Yes</td>
+            </tr>
+            <tr>
+                <td class="columnname">Coby</td>
+                <td class="columnage">60</td>
+                <td  class="columnmarried">Yes</td>
+            </tr>
+
+        </table> 
+        <br />
+        <button onclick="calculateAverage()">Calculate Average</button>
+        <button onclick="getOccurance()">Calculate Married</button>
+
+<script>
+
+    function calculateAverage() {
+        const age = [23, 46, 33,28 , 53,18,30,60];
+
+        function getAvg(age) {
+            const total = age.reduce((acc, c) => acc + c, 0);
+            return total / age.length;
+        }
+        const average = getAvg(age);
+        alert(average)
+    }
+</script>
+
+<script>
+  
+  $(document).ready(function ()
+{
+   
+   getOccurance("Yes");
+   
+
+
+    function getOccurance(word)
+    {
+        var noOfOccurance = 0;
+
+        $("table tr td:gt(1)").each(function (ind, obj)
+        {
+            if (word == $.trim($(obj).text())) noOfOccurance++;
+        });
+
+        alert("There are  " + noOfOccurance + " married people shame");
+
+    }
+
+})
+        
+    
+</script>
+
+
+
+
+
+</body>
+</html>
